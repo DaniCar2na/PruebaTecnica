@@ -1,15 +1,18 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_application_1/login/model/seller.dart';
 import 'package:get/get.dart';
 
 class HomeScreen extends StatelessWidget {
-  const HomeScreen({Key? key}) : super(key: key);
+  HomeScreen(Seller seller, {Key? key}) : super(key: key);
+
+  //final viewModel = Get.put(HomeViewModel());
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
         backgroundColor: Color.fromRGBO(181, 181, 180, 1),
         body: SingleChildScrollView(
-            padding: EdgeInsets.all(20),
+            padding: const EdgeInsets.all(20),
             child: Center(
                 child: Column(children: <Widget>[
               card1(),

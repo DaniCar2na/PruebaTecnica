@@ -1,6 +1,9 @@
+import 'dart:convert';
+
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_application_1/database/sqlite.dart';
+import 'package:flutter_application_1/login/model/seller.dart';
 import 'package:get/get.dart';
 import 'package:sqflite/sqflite.dart';
 
@@ -32,13 +35,29 @@ class LoginViewModel extends GetxController {
   void searchSeller(String codigo) async {
     SqliteService sqliteService = SqliteService();
     Database db = await sqliteService.openDB();
+    Seller? seller;
 
     String statement =
         "SELECT bodega, codigo, nombre, fechaLabores, fechaConsecutivo, consecutivo, empresa, distrito, portafolio, moneda, tipo FROM vendedor WHERE codigo = $codigo ";
     try {
       List<Map> result = await db.rawQuery(statement);
       if (result.isNotEmpty) {
-        Get.to(() => HomeScreen());
+        for (var item in result) {
+          seller = Seller(
+              bodega: item['bodega'],
+              nombre: item['nombre'],
+              consecutivo: item['consecutivo'],
+              codigo: item['codigo'],
+              moneda: item['moneda'],
+              tipo: item['tipo'],
+              empresa: item['empresa'],
+              fechaLabores: item['fechaLabores'],
+              fechaConsecutivo: item['fechaConsecutivo'],
+              portafolio: item['portafolio'],
+              distrito: item['distrito']);
+        }
+
+        Get.to(() => HomeScreen(seller!));
       }
     } catch (e) {
       Get.snackbar("Error", 'El usuario no existe',

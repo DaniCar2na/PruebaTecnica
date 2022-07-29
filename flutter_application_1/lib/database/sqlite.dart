@@ -1,30 +1,35 @@
 import 'package:sqflite/sqflite.dart';
 import 'package:path/path.dart';
-import 'package:path_provider/path_provider.dart';
 import 'dart:io';
+import 'package:flutter/services.dart';
 
 class SqliteService {
   String dbName = 'DataBase.db';
 
-  @override
   Future<Database> openDB() async {
-    var db = await openDatabase('DataBase.db');
-    /* String dirStringPath = 'database/DataBase.db';
     var databasesPath = await getDatabasesPath();
-    String path = join(databasesPath, 'DataBase.db');
-    Database database = await openDatabase(path, version: 1,
-        onCreate: (Database db, int version) async {
-      // When creating the db, create the table
-      await db.execute(
-          'CREATE TABLE Test (id INTEGER PRIMARY KEY, name TEXT, value INTEGER, num REAL)');
-    });*/
+    var path = join(databasesPath, dbName);
+    Database db;
+
+    //verifica si existe la base de datos en la carpeta raiz
+    var exists = await databaseExists(path);
+
+    if (!exists) {
+      try {
+        await Directory(dirname(path)).create(recursive: true);
+      } catch (_) {}
+
+      //copia la base de datos de la carepa assets a la carpeta raiz
+      ByteData data = await rootBundle.load(join("assets", dbName));
+      List<int> bytes =
+          data.buffer.asUint8List(data.offsetInBytes, data.lengthInBytes);
+
+      await File(path).writeAsBytes(bytes, flush: true);
+    }
+    db = await openDatabase(path, readOnly: true);
     return db;
-    //return database;
-    //return await openDatabase(dbName);
-    //return await openDatabase(join(dirStringPath, dbName));
   }
 
-  @override
   Future closeDB(Database db) async {
     await db.close();
   }

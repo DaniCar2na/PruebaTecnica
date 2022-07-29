@@ -3,6 +3,7 @@ import 'dart:convert';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_application_1/database/sqlite.dart';
+import 'package:flutter_application_1/home/view_model/home_view_model.dart';
 import 'package:flutter_application_1/login/model/seller.dart';
 import 'package:get/get.dart';
 import 'package:sqflite/sqflite.dart';
@@ -57,7 +58,7 @@ class LoginViewModel extends GetxController {
               distrito: item['distrito']);
         }
 
-        Get.to(() => HomeScreen(seller!));
+        Get.put(HomeViewModel(seller: seller!));
       }
     } catch (e) {
       Get.snackbar("Error", 'El usuario no existe',

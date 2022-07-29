@@ -1,10 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_application_1/home/view_model/home_view_model.dart';
-import 'package:flutter_application_1/login/model/seller.dart';
 import 'package:get/get.dart';
 
 class HomeScreen extends StatelessWidget {
-  HomeScreen(Seller seller, {Key? key}) : super(key: key);
+  HomeScreen({Key? key}) : super(key: key);
 
   final viewModel = Get.put(HomeViewModel);
 

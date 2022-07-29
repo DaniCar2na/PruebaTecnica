@@ -67,7 +67,6 @@ class LoginScreen extends StatelessWidget {
             )),
         onPressed: () {
           viewModel.login();
-          //Get.to(() => const HomeScreen());
         });
   }
 }

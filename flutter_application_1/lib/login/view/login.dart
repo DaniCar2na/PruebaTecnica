@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_application_1/Screens/home.dart';
+import 'package:flutter_application_1/home/View/home.dart';
 import 'package:flutter_application_1/login/view_model/login_view_model.dart';
 import 'package:get/get.dart';
 

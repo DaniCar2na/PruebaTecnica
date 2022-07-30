@@ -9,7 +9,7 @@ import 'package:sqflite/sqflite.dart';
 class HomeViewModel extends GetxController {
   Seller seller;
   HomeViewModel({required this.seller}) {
-    Get.to(() => HomeScreen());
+    //Get.to(() => HomeScreen());
   }
   @override
   void onInit() {
@@ -18,6 +18,7 @@ class HomeViewModel extends GetxController {
   }
 
   void getClients() async {
+    print('open getClients');
     SqliteService sqliteService = SqliteService();
     Database db = await sqliteService.openDB();
     Client? client;
@@ -35,7 +36,7 @@ class HomeViewModel extends GetxController {
       List<Map> result = await db.rawQuery(statement);
       if (result.isNotEmpty) {
         for (var item in result) {
-          Client client = Client(
+          client = Client(
             codigoAmarre: item["CodigoAmarre"],
             cupo3: item["Cupo3"],
             sustituto: item["Sustituto"],
@@ -128,8 +129,8 @@ class HomeViewModel extends GetxController {
           );
         }
         // Get.put(HomeViewModel(client: client!));
-        print('resutl:' + client.toString());
       }
+      print('resutl:' + client.toString());
     } catch (e) {
       Get.snackbar("Error", 'El usuario no existe',
           backgroundColor: Colors.red.shade400, colorText: Colors.white);

@@ -9,8 +9,9 @@ import 'package:sqflite/sqflite.dart';
 class HomeViewModel extends GetxController {
   Seller seller;
   HomeViewModel({required this.seller}) {
-    //Get.to(() => HomeScreen());
+    Get.to(() => HomeScreen());
   }
+  List<Client> clientList = [];
   @override
   void onInit() {
     getClients();
@@ -18,20 +19,20 @@ class HomeViewModel extends GetxController {
   }
 
   void getClients() async {
-    print('open getClients');
     SqliteService sqliteService = SqliteService();
     Database db = await sqliteService.openDB();
     Client? client;
 
     String statement =
-        '''SELECT codigoAmarre,cupo3,sustituto,cupo, ruta5, ciudad2,grupoPrecios,fechaIngreso,apellidos,vendedor2,
-        subcanal,ordencompra,vendedor5,tipoCredito,cupo4,rutero,celular,tipoCliente,codigo,enlace1,codPadre,factor,
+        '''SELECT codigoAmarre,cupo3,sustituto,Cupo, Ruta5, ciudad2,GrupoPrecios,FechaIngreso,Apellidos,Vendedor2,
+        Subcanal,Ordencompra,vendedor5,tipoCredito,cupo4,rutero,celular,tipoCliente,codigo,enlace1,codPadre,factor,
         ruta6,enlace4,latitud,fax,zonaTransporte,canal,Cupo_disponible,cupo5,zonaventas,ruta1,clasifcli,razonsocial,
         vendedor1,clienteSuizo,linea,potencial,vendedor4,totalcore,ciudad,ruta2,enlace3,agencia,unidadMedida,neocli,
         condicionpago,email,direccion,perIca,cupo1,atributo5,telefono2,telefono,Tarjeta_registro,clienteCunit,tipoDoc,
         ruta3,enlace,territorio,digitoVer,cupoc,bloqueado,vendedor,clienteZenu,nombre,vendedor3,longitud,plazo,valor,
         cupo2,vendedor6,tipimp,factor2,ruta4,enlace2,cumpleanos,Actividad_economica,dirEntrega,retencion,enlace5,ica,
         actividad,barrio,tiporegimen,nombres,necesidad,Ruta_parada FROM clientes''';
+
     try {
       List<Map> result = await db.rawQuery(statement);
       if (result.isNotEmpty) {
@@ -127,10 +128,10 @@ class HomeViewModel extends GetxController {
             necesidad: item["Necesidad"],
             rutaParada: item["Ruta_parada"],
           );
+          clientList.add(client);
         }
         // Get.put(HomeViewModel(client: client!));
       }
-      print('resutl:' + client.toString());
     } catch (e) {
       Get.snackbar("Error", 'El usuario no existe',
           backgroundColor: Colors.red.shade400, colorText: Colors.white);

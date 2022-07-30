@@ -1,3 +1,5 @@
+import 'dart:ffi';
+
 class Client {
   Client({
     this.codigoAmarre,
@@ -94,7 +96,7 @@ class Client {
   String? codigoAmarre;
   dynamic? cupo3;
   dynamic? sustituto;
-  int? cupo;
+  double? cupo;
   String? ruta5;
   String? ciudad2;
   String? grupoPrecios;

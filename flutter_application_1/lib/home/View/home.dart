@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_application_1/home/view_model/home_view_model.dart';
+import 'package:flutter_application_1/home/widgets/user_item_list.dart';
 import 'package:flutter_application_1/login/model/seller.dart';
 import 'package:get/get.dart';
 
@@ -15,6 +16,14 @@ class HomeScreen extends StatelessWidget {
         body: Center(
             child: Column(children: <Widget>[
           card1(viewModel.seller),
+          ListView.builder(
+            scrollDirection: Axis.vertical,
+            shrinkWrap: true,
+            itemCount: viewModel.clientList.length,
+            itemBuilder: (BuildContext context, int position) {
+              return UserItemList(position: position);
+            },
+          ),
         ])));
   }
 }

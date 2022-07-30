@@ -14,6 +14,8 @@ class LoginViewModel extends GetxController {
   TextEditingController userTextField = TextEditingController();
   TextEditingController passwordTextField = TextEditingController();
 
+  //get client => null;
+
   Future<void> login() async {
     SqliteService sqliteService = SqliteService();
     Database db = await sqliteService.openDB();
@@ -58,7 +60,9 @@ class LoginViewModel extends GetxController {
               distrito: item['distrito']);
         }
 
-        Get.put(HomeViewModel(seller: seller!));
+        Get.put(HomeViewModel(
+          seller: seller!,
+        ));
       }
     } catch (e) {
       Get.snackbar("Error", 'El usuario no existe',

@@ -11,7 +11,7 @@ class HomeScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        backgroundColor: Color.fromRGBO(181, 181, 180, 1),
+        backgroundColor: const Color.fromRGBO(181, 181, 180, 1),
         body: SingleChildScrollView(
             padding: const EdgeInsets.all(20),
             child: Center(
@@ -33,7 +33,9 @@ Widget card1(Seller seller) {
           child: Container(
             padding: const EdgeInsets.all(20),
             child: Column(
-              children: [Text(seller.nombre)],
+              children: [
+                Text(seller.nombre)
+              ], // lo que se muestra en la pantalla
             ),
           )),
     ),

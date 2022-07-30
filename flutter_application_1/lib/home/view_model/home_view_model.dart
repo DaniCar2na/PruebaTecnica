@@ -11,7 +11,7 @@ class HomeViewModel extends GetxController {
   HomeViewModel({required this.seller}) {
     Get.to(() => HomeScreen());
   }
-  List<Client> clientList = [];
+  RxList<Client> clientList = RxList();
   @override
   void onInit() {
     getClients();

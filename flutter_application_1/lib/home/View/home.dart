@@ -16,14 +16,14 @@ class HomeScreen extends StatelessWidget {
         body: Center(
             child: Column(children: <Widget>[
           card1(viewModel.seller),
-          ListView.builder(
-            scrollDirection: Axis.vertical,
-            shrinkWrap: true,
-            itemCount: viewModel.clientList.length,
-            itemBuilder: (BuildContext context, int position) {
-              return UserItemList(position: position);
-            },
-          ),
+          Obx(() => ListView.builder(
+                scrollDirection: Axis.vertical,
+                shrinkWrap: true,
+                itemCount: viewModel.clientList.length,
+                itemBuilder: (BuildContext context, int position) {
+                  return UserItemList(position: position);
+                },
+              )),
         ])));
   }
 }

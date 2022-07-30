@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_application_1/home/View/home.dart';
 
 import 'package:get/get.dart';
 

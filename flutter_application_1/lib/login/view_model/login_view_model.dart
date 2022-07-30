@@ -1,6 +1,3 @@
-import 'dart:convert';
-
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_application_1/database/sqlite.dart';
 import 'package:flutter_application_1/home/view_model/home_view_model.dart';
@@ -8,13 +5,9 @@ import 'package:flutter_application_1/login/model/seller.dart';
 import 'package:get/get.dart';
 import 'package:sqflite/sqflite.dart';
 
-import '../../home/View/home.dart';
-
 class LoginViewModel extends GetxController {
   TextEditingController userTextField = TextEditingController();
   TextEditingController passwordTextField = TextEditingController();
-
-  //get client => null;
 
   Future<void> login() async {
     SqliteService sqliteService = SqliteService();
@@ -41,7 +34,7 @@ class LoginViewModel extends GetxController {
     Seller? seller;
 
     String statement =
-        "SELECT bodega, codigo, nombre, fechaLabores, fechaConsecutivo, consecutivo, empresa, distrito, portafolio, moneda, tipo FROM vendedor WHERE codigo = $codigo ";
+        "SELECT bodega, codigo, nombre, fechaLabores, fechaConsecutivo, consecutivo, empresa, distrito, portafolio, moneda, tipo FROM vendedor WHERE codigo = $codigo";
     try {
       List<Map> result = await db.rawQuery(statement);
       if (result.isNotEmpty) {
@@ -60,9 +53,7 @@ class LoginViewModel extends GetxController {
               distrito: item['distrito']);
         }
 
-        Get.put(HomeViewModel(
-          seller: seller!,
-        ));
+        Get.put(HomeViewModel(seller: seller!));
       }
     } catch (e) {
       Get.snackbar("Error", 'El usuario no existe',

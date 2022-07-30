@@ -1,14 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_application_1/database/sqlite.dart';
-import 'package:flutter_application_1/home/View/home.dart';
 import 'package:flutter_application_1/home/model/client.dart';
+import 'package:flutter_application_1/home/view/home.dart';
 import 'package:flutter_application_1/login/model/seller.dart';
 import 'package:get/get.dart';
 import 'package:sqflite/sqflite.dart';
 
 class HomeViewModel extends GetxController {
   Seller seller;
-  HomeViewModel({required this.seller});
+  HomeViewModel({required this.seller}) {
+    Get.to(() => HomeScreen());
+  }
   @override
   void onInit() {
     getClients();
@@ -126,7 +128,7 @@ class HomeViewModel extends GetxController {
           );
         }
         // Get.put(HomeViewModel(client: client!));
-        print('resutl:' + result.first.toString());
+        print('resutl:' + client.toString());
       }
     } catch (e) {
       Get.snackbar("Error", 'El usuario no existe',

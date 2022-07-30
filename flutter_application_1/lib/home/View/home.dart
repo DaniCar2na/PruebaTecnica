@@ -11,13 +11,11 @@ class HomeScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        backgroundColor: const Color.fromRGBO(181, 181, 180, 1),
-        body: SingleChildScrollView(
-            padding: const EdgeInsets.all(20),
-            child: Center(
-                child: Column(children: <Widget>[
-              card1(viewModel.seller),
-            ]))));
+        backgroundColor: Colors.white,
+        body: Center(
+            child: Column(children: <Widget>[
+          card1(viewModel.seller),
+        ])));
   }
 }
 
@@ -26,18 +24,13 @@ Widget card1(Seller seller) {
     width: Get.width * 0.9,
     height: Get.height * 0.2,
     margin: const EdgeInsets.only(top: 20),
-    child: Expanded(
-      child: Card(
-          shape:
-              RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
-          child: Container(
-            padding: const EdgeInsets.all(20),
-            child: Column(
-              children: [
-                Text(seller.nombre)
-              ], // lo que se muestra en la pantalla
-            ),
-          )),
-    ),
+    child: Card(
+        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
+        child: Container(
+          padding: const EdgeInsets.all(20),
+          child: Column(
+            children: [Text(seller.nombre)], // lo que se muestra en la pantalla
+          ),
+        )),
   );
 }

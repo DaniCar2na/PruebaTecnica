@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_application_1/home/View/home.dart';
 import 'package:flutter_application_1/login/view_model/login_view_model.dart';
 import 'package:get/get.dart';
 
@@ -11,7 +10,7 @@ class LoginScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: const Color.fromRGBO(0, 0, 61, 1),
+      backgroundColor: Colors.white,
       body: Center(
         child: Center(
           child: Column(

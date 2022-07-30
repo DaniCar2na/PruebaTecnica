@@ -9,6 +9,13 @@ class LoginViewModel extends GetxController {
   TextEditingController userTextField = TextEditingController();
   TextEditingController passwordTextField = TextEditingController();
 
+  @override
+  onInit() {
+    userTextField.text = '4160';
+    passwordTextField.text = '4160';
+    super.onInit();
+  }
+
   Future<void> login() async {
     SqliteService sqliteService = SqliteService();
     Database db = await sqliteService.openDB();

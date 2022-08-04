@@ -11,26 +11,39 @@ class HomeScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-        backgroundColor: const Color.fromARGB(180, 181, 181, 180),
-        body: Center(
-            child: Column(children: <Widget>[
-          card1(viewModel.seller),
-          Obx(() => ListView.builder(
-                scrollDirection: Axis.vertical,
-                shrinkWrap: true,
-                itemCount: viewModel.clientList.length,
-                itemBuilder: (BuildContext context, int position) {
-                  return UserItemList(position: position);
-                },
-              )),
-        ])));
+    return SafeArea(
+      child: Scaffold(
+          backgroundColor: const Color.fromARGB(180, 181, 181, 180),
+          body: Column(
+            children: [
+              Center(
+                child: card1(viewModel.seller),
+              ),
+              Obx(() => SingleChildScrollView(
+                    controller: viewModel.scrollController,
+                    scrollDirection: Axis.vertical,
+                    child: SizedBox(
+                      height: Get.width,
+                      width: Get.width * 0.95,
+                      child: ListView.builder(
+                        scrollDirection: Axis.vertical,
+                        shrinkWrap: false,
+                        itemCount: viewModel.clientList.length,
+                        itemBuilder: (BuildContext context, int position) {
+                          return UserItemList(position: position);
+                        },
+                      ),
+                    ),
+                  ))
+            ],
+          )),
+    );
   }
 }
 
 Widget card1(Seller seller) {
   return SizedBox(
-    width: Get.width * 1,
+    width: Get.width * 0.95,
     height: Get.height * 0.2,
     child: Card(
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),

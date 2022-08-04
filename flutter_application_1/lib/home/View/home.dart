@@ -12,7 +12,7 @@ class HomeScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        backgroundColor: Colors.white,
+        backgroundColor: const Color.fromARGB(180, 181, 181, 180),
         body: Center(
             child: Column(children: <Widget>[
           card1(viewModel.seller),
@@ -29,10 +29,9 @@ class HomeScreen extends StatelessWidget {
 }
 
 Widget card1(Seller seller) {
-  return Container(
-    width: Get.width * 0.9,
+  return SizedBox(
+    width: Get.width * 1,
     height: Get.height * 0.2,
-    margin: const EdgeInsets.only(top: 20),
     child: Card(
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
         child: Container(

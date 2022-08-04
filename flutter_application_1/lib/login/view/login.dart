@@ -10,15 +10,17 @@ class LoginScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.white,
+      backgroundColor: const Color.fromARGB(250, 0, 0, 61),
       body: Center(
         child: Center(
           child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: <Widget>[
+                //logo(),
                 campoUsuario(),
                 campoContrasena(),
-                btnEntrar()
+                btnEntrar(),
+                logo()
               ]),
         ),
       ),
@@ -67,5 +69,18 @@ class LoginScreen extends StatelessWidget {
         onPressed: () {
           viewModel.login();
         });
+  }
+
+  Widget logo() {
+    return SizedBox(
+      child: Column(
+        children: [
+          Image.asset(
+            'logo.png',
+            width: 100,
+          ),
+        ],
+      ),
+    );
   }
 }

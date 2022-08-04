@@ -37,14 +37,6 @@ class LoginScreen extends StatelessWidget {
   Widget campoUsuario() {
     return Container(
       padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
-      /*child: TextField(
-        controller: viewModel.userTextField,
-        decoration: const InputDecoration(
-          prefixIcon: Icon(Icons.person),
-          hintText: 'User',
-          hintStyle: TextStyle(color: Colors.white),
-        ),
-      ),*/
       child: CustomTextField(
         userEditingController: viewModel.userTextField,
         prefixIconData: Icons.person,
@@ -76,14 +68,6 @@ class LoginScreen extends StatelessWidget {
               },
               text: 'iniciar Sesion')),
     );
-    /*ElevatedButton(
-        child: const Text('Iniciar Sesion',
-            style: TextStyle(
-              color: Color.fromRGBO(0, 0, 61, 1),
-            )),
-        onPressed: () {
-          viewModel.login();
-        });*/
   }
 
   Widget logo() {

@@ -25,43 +25,43 @@ class CustomButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Obx((() => (ElevatedButton(
-          onPressed: () {
-            onPressed.call();
-          },
-          child: Row(
-            mainAxisSize: MainAxisSize.min,
-            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-            children: [
-              if (leftIcon != null)
-                ImageIcon(
-                  leftIcon,
-                  color: Colors.white,
-                ),
-              if (leftIcon != null || rightIcon != null) const Spacer(),
-              Text(
-                text,
-                style: const TextStyle(
-                    color: Colors.white,
-                    fontWeight: FontWeight.normal,
-                    fontSize: 18),
-              ),
-              if (leftIcon != null || rightIcon != null) const Spacer(),
-              if (rightIcon != null)
-                ImageIcon(
-                  rightIcon,
-                  color: Colors.white,
-                ),
-            ],
-          ),
-          style: ElevatedButton.styleFrom(
-            primary: backgroundColor,
-            minimumSize: Size(0, height),
-            elevation: 20,
-            shape: RoundedRectangleBorder(
-              borderRadius: BorderRadius.circular(20),
+    return ElevatedButton(
+      onPressed: () {
+        onPressed.call();
+      },
+      style: ElevatedButton.styleFrom(
+        primary: backgroundColor,
+        minimumSize: Size(0, height),
+        elevation: 20,
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(20),
+        ),
+      ),
+      child: Row(
+        mainAxisSize: MainAxisSize.min,
+        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+        children: [
+          if (leftIcon != null)
+            ImageIcon(
+              leftIcon,
+              color: Colors.white,
             ),
+          if (leftIcon != null || rightIcon != null) const Spacer(),
+          Text(
+            text,
+            style: const TextStyle(
+                color: Colors.white,
+                fontWeight: FontWeight.normal,
+                fontSize: 18),
           ),
-        ))));
+          if (leftIcon != null || rightIcon != null) const Spacer(),
+          if (rightIcon != null)
+            ImageIcon(
+              rightIcon,
+              color: Colors.white,
+            ),
+        ],
+      ),
+    );
   }
 }

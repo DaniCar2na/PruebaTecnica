@@ -40,7 +40,10 @@ class _CustomTextFieldState extends State<CustomTextField> {
           color: Colors.white, fontWeight: FontWeight.normal, fontSize: 18),
       keyboardType: widget.numeric ? TextInputType.number : TextInputType.text,
       decoration: InputDecoration(
-        prefixIcon: Icon(widget.prefixIconData),
+        prefixIcon: Icon(
+          widget.prefixIconData,
+          color: Colors.white,
+        ),
         suffixIcon: IconButton(
           onPressed: () {
             setState(() {

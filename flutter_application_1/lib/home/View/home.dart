@@ -35,7 +35,7 @@ Widget card1(Seller seller) {
     child: Card(
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
         child: Container(
-          padding: const EdgeInsets.all(20),
+          padding: const EdgeInsets.all(50),
           child: Column(
             children: [Text(seller.nombre)], // lo que se muestra en la pantalla
           ),

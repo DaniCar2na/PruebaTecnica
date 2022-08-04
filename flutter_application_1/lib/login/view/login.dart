@@ -36,7 +36,7 @@ class LoginScreen extends StatelessWidget {
 
   Widget campoUsuario() {
     return Container(
-      padding: const EdgeInsets.symmetric(horizontal: 30, vertical: 10),
+      padding: const EdgeInsets.symmetric(horizontal: 30, vertical: 2),
       child: CustomTextField(
         userEditingController: viewModel.userTextField,
         prefixIconData: Icons.person,
@@ -48,7 +48,7 @@ class LoginScreen extends StatelessWidget {
 
   Widget campoContrasena() {
     return Container(
-        padding: const EdgeInsets.symmetric(horizontal: 30, vertical: 10),
+        padding: const EdgeInsets.symmetric(horizontal: 30, vertical: 2),
         child: CustomTextField(
           userEditingController: viewModel.passwordTextField,
           prefixIconData: Icons.lock,
@@ -59,6 +59,7 @@ class LoginScreen extends StatelessWidget {
 
   Widget btnEntrar() {
     return Container(
+        margin: const EdgeInsets.only(top: 20),
         padding: const EdgeInsets.symmetric(horizontal: 30),
         width: Get.width,
         //height: Get.height * 0.09,

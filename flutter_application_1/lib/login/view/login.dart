@@ -73,10 +73,12 @@ class LoginScreen extends StatelessWidget {
 
   Widget logo() {
     return SizedBox(
+      height: 100,
+      width: 100,
       child: Column(
         children: [
           Image.asset(
-            'logo.png',
+            'res/images/logo.png',
             width: 100,
           ),
         ],

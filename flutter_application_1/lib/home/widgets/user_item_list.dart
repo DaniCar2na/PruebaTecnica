@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/rendering.dart';
 import 'package:get/get.dart';
 import '../view_model/home_view_model.dart';
 
@@ -7,12 +6,12 @@ class UserItemList extends StatelessWidget {
   UserItemList({Key? key, required this.position}) : super(key: key);
 
   final viewModel = Get.find<HomeViewModel>();
-  int position;
+  final int position;
   @override
   Widget build(BuildContext context) {
     return Container(
         width: Get.width * 0.7,
-        height: Get.height * 0.2,
+        height: Get.height * 0.15,
         margin: const EdgeInsets.only(top: 20),
         child: Card(
             shape:

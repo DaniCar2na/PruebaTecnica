@@ -11,7 +11,7 @@ class UserItemList extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-        width: Get.width * 0.9,
+        width: Get.width * 0.7,
         height: Get.height * 0.2,
         margin: const EdgeInsets.only(top: 20),
         child: Card(

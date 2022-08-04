@@ -8,6 +8,7 @@ import 'package:sqflite/sqflite.dart';
 
 class HomeViewModel extends GetxController {
   Seller seller;
+  ScrollController scrollController = ScrollController();
   HomeViewModel({required this.seller}) {
     Get.to(() => HomeScreen());
   }

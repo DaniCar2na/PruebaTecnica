@@ -40,6 +40,9 @@ class _CustomTextFieldState extends State<CustomTextField> {
           color: Colors.white, fontWeight: FontWeight.normal, fontSize: 18),
       keyboardType: widget.numeric ? TextInputType.number : TextInputType.text,
       decoration: InputDecoration(
+        enabledBorder: OutlineInputBorder(
+            borderRadius: BorderRadius.circular(20),
+            borderSide: const BorderSide(color: Colors.white, width: 1.0)),
         prefixIcon: Icon(
           widget.prefixIconData,
           color: Colors.white,

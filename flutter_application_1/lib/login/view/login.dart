@@ -36,7 +36,7 @@ class LoginScreen extends StatelessWidget {
 
   Widget campoUsuario() {
     return Container(
-      padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
+      padding: const EdgeInsets.symmetric(horizontal: 30, vertical: 10),
       child: CustomTextField(
         userEditingController: viewModel.userTextField,
         prefixIconData: Icons.person,
@@ -48,7 +48,7 @@ class LoginScreen extends StatelessWidget {
 
   Widget campoContrasena() {
     return Container(
-        padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
+        padding: const EdgeInsets.symmetric(horizontal: 30, vertical: 10),
         child: CustomTextField(
           userEditingController: viewModel.passwordTextField,
           prefixIconData: Icons.lock,
@@ -58,27 +58,29 @@ class LoginScreen extends StatelessWidget {
   }
 
   Widget btnEntrar() {
-    return SizedBox(
-      width: Get.width * 0.6,
-      height: Get.height * 0.2,
-      child: Expanded(
+    return Container(
+        padding: const EdgeInsets.symmetric(horizontal: 30),
+        width: Get.width,
+        //height: Get.height * 0.09,
+        child: Expanded(
           child: CustomButton(
+              backgroundColor: Colors.white,
               onPressed: () {
                 viewModel.login();
               },
-              text: 'iniciar Sesion')),
-    );
+              text: 'iniciar Sesion'),
+        ));
   }
 
   Widget logo() {
     return SizedBox(
-      height: 100,
-      width: 100,
+      height: 180,
+      width: 200,
       child: Column(
         children: [
           Image.asset(
             'res/images/logo.png',
-            width: 100,
+            width: 180,
           ),
         ],
       ),

@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_application_1/login/view_model/login_view_model.dart';
 import 'package:get/get.dart';
 
+import '../../shared/widgets/custom_text_field.dart';
+
 class LoginScreen extends StatelessWidget {
   LoginScreen({Key? key}) : super(key: key);
 
@@ -16,11 +18,10 @@ class LoginScreen extends StatelessWidget {
           child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: <Widget>[
-                //logo(),
+                logo(),
                 campoUsuario(),
                 campoContrasena(),
-                btnEntrar(),
-                logo()
+                btnEntrar()
               ]),
         ),
       ),
@@ -35,13 +36,19 @@ class LoginScreen extends StatelessWidget {
   Widget campoUsuario() {
     return Container(
       padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
-      child: TextField(
+      /*child: TextField(
         controller: viewModel.userTextField,
         decoration: const InputDecoration(
           prefixIcon: Icon(Icons.person),
           hintText: 'User',
           hintStyle: TextStyle(color: Colors.white),
         ),
+      ),*/
+      child: CustomTextField(
+        userEditingController: viewModel.userTextField,
+        prefixIconData: Icons.person,
+        hint: 'usuario',
+        maxLenght: 20,
       ),
     );
   }
